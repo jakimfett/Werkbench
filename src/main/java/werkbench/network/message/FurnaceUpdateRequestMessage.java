@@ -64,10 +64,10 @@ public class FurnaceUpdateRequestMessage implements IMessage, IMessageHandler<Fu
     @Override
     public IMessage onMessage(FurnaceUpdateRequestMessage message, MessageContext ctx)
     {
-        TileEntity tileEntity = FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld().getTileEntity(message.furnaceX, message.furnaceY, message.furnaceZ);
+        TileEntity tileEntity = LogicalSidedProvider.WORKQUEUE.get(LogicalSide.SERVER).getLevel().getTileEntity(new BlockPos(message.furnaceX, message.furnaceY, message.furnaceZ));
         if (tileEntity instanceof TileEntityFurnace)
         {
-            TileEntity sourceTileEntity = FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld().getTileEntity(message.benchX, message.benchY, message.benchZ);
+            TileEntity sourceTileEntity = LogicalSidedProvider.WORKQUEUE.get(LogicalSide.SERVER).getLevel().getTileEntity(new BlockPos(message.benchX, message.benchY, message.benchZ));
             if (sourceTileEntity instanceof BenchTileEntity)
             {
                 EntityPlayerMP player = ((NetHandlerPlayServer) ctx.netHandler).playerEntity;

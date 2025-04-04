@@ -26,7 +26,7 @@ public class BenchBlock extends BasicBlockContainer
     @Override
     public void breakBlock(World world, int x, int y, int z, Block block, int meta)
     {
-        TileEntity bench = world.getTileEntity(x, y, z);
+        TileEntity bench = world.getTileEntity(new BlockPos(x, y, z));
         if (bench instanceof BenchTileEntity)
         {
             if (((BenchTileEntity) bench).craftMatrix != null)
@@ -87,7 +87,7 @@ public class BenchBlock extends BasicBlockContainer
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
     {
-        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
         if (tileEntity != null && !player.isSneaking())
         {
             if (tileEntity instanceof BenchTileEntity)
@@ -115,7 +115,7 @@ public class BenchBlock extends BasicBlockContainer
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, Block changedBlock)
     {
-        TileEntity potentialBench = world.getTileEntity(x, y, z);
+        TileEntity potentialBench = world.getTileEntity(new BlockPos(x, y, z));
         if (potentialBench instanceof BenchTileEntity)
         {
             ((BenchTileEntity) potentialBench).doCacheUpdateNow();

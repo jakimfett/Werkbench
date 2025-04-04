@@ -1,14 +1,15 @@
 package werkbench.proxy.client;
 
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.ModelEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import jakimbox.prefab.render.BasicItemRenderer;
-import net.minecraft.item.Item;
-import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import werkbench.Werkbench;
 import werkbench.bench.BenchTileEntity;
-import werkbench.bench.BenchTileEntityRenderer;
 import werkbench.proxy.CommonProxy;
+import werkbench.render.BenchTileEntityRenderer;
 
 /**
  *
@@ -16,13 +17,15 @@ import werkbench.proxy.CommonProxy;
  */
 public class ClientProxy extends CommonProxy
 {
-    @Override
-    public void registerRenderers()
+    @SubscribeEvent
+    public void registerRenderers(EntityRenderersEvent.RegisterRenderers event)
     {
-        RENDER_ID = RenderingRegistry.getNextAvailableRenderId();
+        event.registerBlockEntityRenderer(BenchTileEntity.class, BenchTileEntityRenderer::new);
+    }
 
-        BenchTileEntityRenderer benchTileEntityRenderer = new BenchTileEntityRenderer();
-        ClientRegistry.bindTileEntitySpecialRenderer(BenchTileEntity.class, benchTileEntityRenderer);
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(Werkbench.werkbench), new BasicItemRenderer(benchTileEntityRenderer, new BenchTileEntity()));
+    @SubscribeEvent
+    public void registerModels(ModelEvent.RegisterAdditional event)
+    {
+        // Register block and item models here if needed
     }
 }

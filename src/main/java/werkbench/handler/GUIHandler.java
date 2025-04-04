@@ -14,7 +14,7 @@ public class GUIHandler implements IGuiHandler
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
     {
-        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
         if (tileEntity != null)
         {
             if (tileEntity instanceof BenchTileEntity)
@@ -30,7 +30,7 @@ public class GUIHandler implements IGuiHandler
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
     {
 
-        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
         if (tileEntity != null)
         {
             if (tileEntity instanceof BenchTileEntity)

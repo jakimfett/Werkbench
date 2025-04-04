@@ -64,7 +64,7 @@ public final class BenchContainer extends BasicInventoryContainer
                 int y = this.bench.yCoord;
                 int z = this.bench.zCoord + entry.getKey().z;
                 Block storedBlock = entry.getValue();
-                if (storedBlock instanceof BlockChest && this.bench.getWorldObj().getTileEntity(x, y, z) instanceof TileEntityChest)
+                if (storedBlock instanceof BlockChest && this.bench.getLevel().getTileEntity(new BlockPos(x, y, z)) instanceof TileEntityChest)
                 {
 
                     IInventory chestInventory = ((BlockChest) storedBlock).func_149951_m(this.bench.getWorldObj(), x, y, z);
@@ -112,7 +112,7 @@ public final class BenchContainer extends BasicInventoryContainer
         int y = this.bench.yCoord;
         int z = this.bench.zCoord + direction.z;
 
-        TileEntity worldTileEntity = bench.getWorldObj().getTileEntity(x, y, z);
+        TileEntity worldTileEntity = bench.getLevel().getTileEntity(new BlockPos(x, y, z));
 
         TileEntityFurnace furnace;
         if (worldTileEntity instanceof TileEntityFurnace)

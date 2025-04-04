@@ -63,7 +63,7 @@ public class FurnaceUpdateResponseMessage implements IMessage, IMessageHandler<F
     public IMessage onMessage(FurnaceUpdateResponseMessage message, MessageContext ctx)
     {
 
-        TileEntity tileEntity = FMLClientHandler.instance().getClient().theWorld.getTileEntity(message.benchX, message.benchY, message.benchZ);
+        TileEntity tileEntity = Minecraft.getInstance().level.getTileEntity(new BlockPos(message.benchX, message.benchY, message.benchZ));
         if (tileEntity instanceof BenchTileEntity)
         {
             //RelativeBenchSide furnaceSide = RelativeBenchSide.values()[message.furnaceSideOrdinal];
