@@ -1,6 +1,6 @@
 package werkbench.network.message;
 
-import cpw.mods.fml.client.FMLClientHandler;
+import net.minecraftforge.client.ClientHooks;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;

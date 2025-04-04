@@ -1,7 +1,7 @@
 package werkbench.bench;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import jakimbox.helper.LogHelper;
 import jakimbox.prefab.container.BasicInventoryContainer;
 import jakimbox.reference.RelativeDirection;

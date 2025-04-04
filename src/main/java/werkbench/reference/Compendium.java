@@ -1,6 +1,6 @@
 package werkbench.reference;
 
-import cpw.mods.fml.common.ModMetadata;
+import net.minecraftforge.fml.common.ModMetadata;
 import java.util.Arrays;
 import net.minecraft.util.ResourceLocation;
 

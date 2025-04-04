@@ -1,7 +1,7 @@
 package werkbench.proxy.client;
 
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import jakimbox.prefab.render.BasicItemRenderer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;

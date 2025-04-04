@@ -4,7 +4,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import cpw.mods.fml.relauncher.Side;
+import net.minecraftforge.api.distmarker.Dist;
 import werkbench.network.message.FurnaceUpdateRequestMessage;
 import werkbench.network.message.FurnaceUpdateResponseMessage;
 import werkbench.reference.Compendium;

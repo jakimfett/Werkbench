@@ -1,8 +1,8 @@
 package werkbench.reference;
 
-import cpw.mods.fml.client.config.IConfigElement;
-import cpw.mods.fml.client.event.ConfigChangedEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.client.config.IConfigElement;
+import net.minecraftforge.client.event.ConfigChangedEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
