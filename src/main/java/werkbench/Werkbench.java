@@ -53,15 +53,15 @@ public class Werkbench
         // Load configuration.
         LogHelper.debug("Loading configuration...");
         Config.init();
-        FMLCommonHandler.instance().bus().register(new Config());
+        MinecraftForge.EVENT_BUS.register(new Config());
 
         LogHelper.debug("Set Werkbench MetaData info...");
         metadata = Compendium.MetaData.init(metadata);
 
         LogHelper.debug("Registering Werkbench block...");
         werkbench = new BenchBlock();
-        GameRegistry.registerBlock(werkbench, Compendium.Naming.block);
-        GameRegistry.registerTileEntity(BenchTileEntity.class, Compendium.Naming.tileEntity);
+        ForgeRegistries.BLOCKS.register(werkbench);
+        GameRegistry.registerTileEntity(BenchTileEntity.class, new ResourceLocation(Compendium.Naming.id, Compendium.Naming.tileEntity));
 
         LogHelper.debug("Registering GUI handler for werkbench...");
         NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
@@ -75,10 +75,7 @@ public class Werkbench
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        GameRegistry.addRecipe(new ItemStack(Werkbench.werkbench), new Object[]
-        {
-            "ppp", "pbp", "pcp", 'p', Blocks.planks, 'b', Blocks.crafting_table, 'c', Blocks.chest
-        });
+        // Recipe moved to JSON file in data/werkbench/recipes/werkbench.json
         proxy.registerRenderers();
     }
 }

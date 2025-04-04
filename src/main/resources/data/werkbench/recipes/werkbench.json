@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "pbp",
+    "pcp"
+  ],
+  "key": {
+    "p": {
+      "item": "minecraft:planks"
+    },
+    "b": {
+      "item": "minecraft:crafting_table"
+    },
+    "c": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "werkbench:werkbench",
+    "count": 1
+  }
+}

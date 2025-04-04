@@ -271,7 +271,7 @@ public final class BenchContainer extends BasicInventoryContainer
      *
      * @param stack
      */
-    @SideOnly(Side.CLIENT)
+    @OnlyIn(Dist.CLIENT)
     @Override
     public void putStacksInSlots(ItemStack[] stack)
     {
